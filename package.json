@@ -12,6 +12,7 @@
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
   "devDependencies": {
     "@types/jest": "^28.1.3",
     "@types/mime-types": "^2.1.1",
@@ -30,5 +31,13 @@
     "mime-types": "^2.1.35",
     "mkdirp": "^1.0.4",
     "nanoid": "^3.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juancwu/dowm"
+  },
+  "homepage": "https://github.com/juancwu/dowm",
+  "bugs": {
+    "url": "https://github.com/juancwu/dowm/issues"
   }
 }
