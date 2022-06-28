@@ -5,7 +5,7 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "name": "multi-getter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "multi-getter": "dist/cli.js"
   },
