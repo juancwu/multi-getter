@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from "commander";
 import Download from "./download";
 import { MultiProgress } from "./progress";

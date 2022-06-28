@@ -2,12 +2,12 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "test": "jest",
-    "prepublish": "npm run test && npm run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
-  "name": "dowm",
+  "name": "multi-download",
   "version": "1.0.0",
   "bin": {
-    "down": "./cli.js"
+    "mdown": "dist/cli.js"
   },
   "files": [
     "dist"
@@ -34,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/juancwu/dowm"
+    "url": "https://github.com/juancwu/multi-down"
   },
-  "homepage": "https://github.com/juancwu/dowm",
+  "homepage": "https://github.com/juancwu/multi-down",
   "bugs": {
-    "url": "https://github.com/juancwu/dowm/issues"
+    "url": "https://github.com/juancwu/multi-down/issues"
   }
 }
