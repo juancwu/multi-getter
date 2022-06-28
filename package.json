@@ -34,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/juancwu/multi-down"
+    "url": "https://github.com/juancwu/multi-getter"
   },
-  "homepage": "https://github.com/juancwu/multi-down",
+  "homepage": "https://github.com/juancwu/multi-getter",
   "bugs": {
-    "url": "https://github.com/juancwu/multi-down/issues"
+    "url": "https://github.com/juancwu/multi-getter/issues"
   }
 }
