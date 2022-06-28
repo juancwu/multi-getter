@@ -4,10 +4,10 @@
     "test": "jest",
     "prepublishOnly": "npm run test && npm run build"
   },
-  "name": "multi-download",
+  "name": "multi-getter",
   "version": "1.0.0",
   "bin": {
-    "mdown": "dist/cli.js"
+    "multi-getter": "dist/cli.js"
   },
   "files": [
     "dist"
