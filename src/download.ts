@@ -4,6 +4,8 @@ import mime from "mime-types";
 import { nanoid } from "nanoid";
 import { EventEmitter } from "events";
 import path from "path";
+import { access } from "fs/promises";
+import mkdirp from "mkdirp";
 
 export default class Download extends EventEmitter {
   public totalBytes: number;
@@ -48,6 +50,12 @@ export default class Download extends EventEmitter {
             : nanoid(6) + "." + type;
 
         this.savepath = path.join(dir, this.filename);
+
+        try {
+          await access(dir);
+        } catch (error) {
+          await mkdirp(dir);
+        }
 
         this.filestream = createWriteStream(this.savepath.replace('"', ""));
         this.emit("start", this.savepath);
