@@ -37,30 +37,41 @@ export class ProgressBar {
     this.done = false;
 
     // truncate label if too long
-    if (this.label) {
-      this.label = this.label.substring(0, 58) + "...";
+    if (this.label && this.label.length > process.stdout.columns) {
+      this.label =
+        this.label.substring(
+          0,
+          Math.max(process.stdout.columns - 3, this.label.length)
+        ) + "...";
     }
   }
 
   public update(prefix: string = "\r", suffix: string = "") {
     const numOfChar = Math.floor((this.count / this.total) * this.barLength);
-
+    // let progressString = prefix + "[";
     process.stdout.write(prefix + "[");
     for (let i = 0; i < numOfChar; i++) {
       process.stdout.write("=");
+      // progressString += "=";
     }
 
-    if (this.count < this.total) {
+    if (this.count !== 0 && this.count < this.total) {
       process.stdout.write(ESC + CSI + BACK + ">");
+      // progressString =
+      //   progressString.substring(0, progressString.lastIndexOf("=")) + ">";
     }
 
     for (let i = 0; i < this.barLength - numOfChar; i++) {
       process.stdout.write(" ");
+      // progressString += " ";
     }
 
     process.stdout.write(
       `] ${Math.floor((this.count / this.total) * 100)}% ${this.label}` + suffix
     );
+    // progressString +=
+    //   `] ${Math.floor((this.count / this.total) * 100)}% ${this.label}` +
+    //   suffix;
 
     if (this.count === this.total) {
       this.done = true;
@@ -99,10 +110,16 @@ export class MultiProgress {
   }
 
   public removeBar(id: string) {
+    const rows = this.bars.size;
     if (this.bars.has(id)) {
-      // process.stdout.write(ESC + CSI + this.bars.size + PREVIOUS);
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < process.stdout.columns; j++) {
+          process.stdout.write(" ");
+        }
+        process.stdout.write("\n");
+      }
       this.bars.delete(id);
-
+      process.stdout.write(ESC + CSI + rows + PREVIOUS);
       this.update();
     }
   }

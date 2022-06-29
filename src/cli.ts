@@ -9,7 +9,7 @@ import { Manager } from "./manager";
 
 const program = new Command("Downloader with progress bars");
 
-program.version("v1.0.0");
+program.version("v1.0.3");
 
 const getcommand = program.command("get");
 getcommand.description("Get a file from the internet.");
